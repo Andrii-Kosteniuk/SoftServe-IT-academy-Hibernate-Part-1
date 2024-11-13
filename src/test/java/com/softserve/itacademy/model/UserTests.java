@@ -138,4 +138,24 @@ public class UserTests {
 //                Arguments.of("", "Password must be at least 8 characters long and contain at least one letter, one number, and can include special characters")
 //        );
 //    }
+    //@Test
+    //    public void testValidToDo() {
+    //        ToDo todo = new ToDo();
+    //        todo.setTitle("Project Meeting");
+    //
+    //        Set<ConstraintViolation<ToDo>> violations = validator.validate(todo);
+    //        assertTrue(violations.isEmpty(), "Expected no validation errors for a valid title");
+    //    }
+    //
+    //    @Test
+    //    public void testEmptyTitle() {
+    //        ToDo todo = new ToDo();
+    //        todo.setTitle("");
+    //
+    //        Set<ConstraintViolation<ToDo>> violations = validator.validate(todo);
+    //        assertFalse(violations.isEmpty(), "Expected validation error for empty title");
+    //
+    //        ConstraintViolation<ToDo> violation = violations.iterator().next();
+    //        assertEquals("Title cannot be empty", violation.getMessage());
+    //    }
 }
