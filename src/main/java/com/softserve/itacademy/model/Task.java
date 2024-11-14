@@ -1,5 +1,7 @@
 package com.softserve.itacademy.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,6 +19,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
+	@Length(min = 3, max = 200)
     private String name;
     
     @Enumerated(EnumType.STRING)
