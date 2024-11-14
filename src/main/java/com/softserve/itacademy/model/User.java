@@ -1,10 +1,7 @@
 package com.softserve.itacademy.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,24 +20,20 @@ public class User {
     @Column(name = "user_id")
     private long id;
 
-    @NotEmpty(message = "User name can not be empty!")
-    @Size(min = 2, max = 50)
+    @Pattern(regexp = "^[A-Z][a-z]+(-[A-Z][a-z]+)?$",
+    message = "First name must start with a capital letter followed by lowercase letters, optionally separated by a hyphen")
     private String firstName;
 
-    @NotEmpty(message = "User last name can not be empty!")
-    @Size(min = 2, max = 50)
+    @Pattern(regexp = "^[A-Z][a-z]+(-[A-Z][a-z]+)?$",
+            message = "Last name must start with a capital letter followed by lowercase letters, optionally separated by a hyphen")
     private String lastName;
 
-    @Email(message = "Invalid email format")
-    @Pattern(regexp = "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$",
-            message = "Invalid email address format")
+    @Pattern(regexp = "^(?!\\.)([\\w\\-_.]+[^.])@([\\w-]+)\\.(\\w{2,})(\\.\\w{2,})?$",
+            message = "Must be a valid e-mail address")
     private String email;
 
-    @Pattern(
-            regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()\\-_=+\\[\\]{}|;:'\",.<>?/`~\\\\]).{8,}$",
-            message = "Password must be at least 8 characters long, " +
-                      "contain at least one uppercase letter, one lowercase letter, " +
-                      "one number, and one special character !@#$%^&*()-_=+[]{}|;:'\",.<>?/`~\\")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()\\-_=+\\[\\]{}|;:'\",.<>?/`~\\\\]).{8,}$",
+            message = "Password must be at least 8 characters long and contain at least one letter, one number, and can include special characters")
     private String password;
 
     @Enumerated(EnumType.STRING)
