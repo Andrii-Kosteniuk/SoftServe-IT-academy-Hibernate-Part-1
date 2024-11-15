@@ -76,6 +76,7 @@ public class Task {
 
 	public void setState(State state) {
 		this.state = state;
+		state.getTasks().add(this);
 	}
 
 	public long getId() {
