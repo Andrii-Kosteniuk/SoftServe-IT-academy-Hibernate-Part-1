@@ -1,10 +1,6 @@
 package com.softserve.itacademy.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import java.util.List;
-import java.util.Objects;
-
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,11 +17,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private long id;
 
     @Pattern(regexp = "^[A-Z][a-z]+(-[A-Z][a-z]+)?$",
-    message = "First name must start with a capital letter followed by lowercase letters, optionally separated by a hyphen")
+            message = "First name must start with a capital letter followed by lowercase letters, optionally separated by a hyphen")
     private String firstName;
 
     @Pattern(regexp = "^[A-Z][a-z]+(-[A-Z][a-z]+)?$",
