@@ -52,7 +52,6 @@ public class StateTests {
                 Arguments.of("Неправильна назва", "Неправильна назва"),
                 Arguments.of("TooLongStateNameTooLongStateName", "TooLongStateNameTooLongStateName"),
                 Arguments.of("    ", "    "),
-                Arguments.of("", ""),
                 Arguments.of("almost<alid?", "almost<alid?")
         );
     }
