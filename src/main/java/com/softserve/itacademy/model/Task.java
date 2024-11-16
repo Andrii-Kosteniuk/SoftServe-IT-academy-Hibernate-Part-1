@@ -18,14 +18,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tasks")
 public class Task {
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-	
-	@Length(min = 3, max = 200)
+
+    @Length(min = 3, max = 200)
     private String name;
-    
+
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
@@ -36,80 +36,78 @@ public class Task {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "state_id")
     private State state;
-    
-	public Task() { }
-	
-	public Task(long id, String name, TaskPriority priority, ToDo todo, State state) {
-		this.id = id;
-		this.name = name;
-		this.priority = priority;
-		this.todo = todo;
-		this.state = state;
-	}
 
-	public String getName() {
-		return name;
-	}
+    public Task() {
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Task(long id, String name, TaskPriority priority, ToDo todo, State state) {
+        this.id = id;
+        this.name = name;
+        this.priority = priority;
+        this.todo = todo;
+        this.state = state;
+    }
 
-	public TaskPriority getPriority() {
-		return priority;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setPriority(TaskPriority priority) {
-		this.priority = priority;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public ToDo getTodo() {
-		return todo;
-	}
+    public TaskPriority getPriority() {
+        return priority;
+    }
 
-	public void setTodo(ToDo todo) {
-		this.todo = todo;
-		todo.getTasks().add(this);
-	}
+    public void setPriority(TaskPriority priority) {
+        this.priority = priority;
+    }
 
-	public State getState() {
-		return state;
-	}
+    public ToDo getTodo() {
+        return todo;
+    }
 
-	public void setState(State state) {
-		this.state = state;
-		state.getTasks().add(this);
-	}
+    public void setTodo(ToDo todo) {
+        this.todo = todo;
+        todo.getTasks().add(this);
+    }
 
-	public long getId() {
-		return id;
-	}
+    public State getState() {
+        return state;
+    }
 
-	@Override
-	public String toString() {
-		return "Task [id=" + id + ", name=" + name + ", priority=" + priority + ", todo=" + todo + ", state=" + state
-				+ "]";
-	}
+    public void setState(State state) {
+        this.state = state;
+        state.getTasks().add(this);
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, name);
-	}
+    public long getId() {
+        return id;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Task)) {
-			return false;
-		}
-		Task other = (Task) obj;
-		return id == other.id && Objects.equals(name, other.name);
-	}
-	
-	
-	
-	
+    @Override
+    public String toString() {
+        return "Task [id=" + id + ", name=" + name + ", priority=" + priority + ", todo=" + todo + ", state=" + state
+                + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Task)) {
+            return false;
+        }
+        Task other = (Task) obj;
+        return id == other.id && Objects.equals(name, other.name);
+    }
+
 
 }

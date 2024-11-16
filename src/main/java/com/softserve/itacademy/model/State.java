@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +24,8 @@ public class State {
     @OneToMany(mappedBy = "state", cascade = CascadeType.ALL)
     private List<Task> tasks;
 
-    public State() {}
+    public State() {
+    }
 
     public State(long id, String name, List<Task> tasks) {
         this.id = id;

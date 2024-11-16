@@ -47,6 +47,7 @@ public class StateTests {
             assertEquals(errorValue, violations.iterator().next().getInvalidValue());
         }
     }
+
     static Stream<Arguments> provideInvalidStates() {
         return Stream.of(
                 Arguments.of("Неправильна назва", "Неправильна назва"),
@@ -55,6 +56,7 @@ public class StateTests {
                 Arguments.of("almost<alid?", "almost<alid?")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideValidStates")
     void testValidStates(String input) {
@@ -66,6 +68,7 @@ public class StateTests {
             assertEquals(0, violations.size());
         }
     }
+
     static Stream<Arguments> provideValidStates() {
         return Stream.of(
                 Arguments.of("Valid Name"),

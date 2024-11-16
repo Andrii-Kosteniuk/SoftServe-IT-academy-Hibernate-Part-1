@@ -58,6 +58,7 @@ public class UserTests {
         assertEquals(1, violations.size());
         assertEquals(expectedMessage, violations.iterator().next().getMessage());
     }
+
     private static Stream<Arguments> provideInvalidFirstNames() {
         return Stream.of(
                 Arguments.of("anna", "First name must start with a capital letter followed by lowercase letters, optionally separated by a hyphen"),
@@ -138,7 +139,6 @@ public class UserTests {
                 Arguments.of("", "Password must be at least 8 characters long and contain at least one letter, one number, and can include special characters")
         );
     }
-
 
 
 }
