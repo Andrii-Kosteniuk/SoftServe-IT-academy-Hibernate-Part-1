@@ -1,5 +1,7 @@
 package com.softserve.itacademy.model;
 
+import java.util.Objects;
+
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.Entity;
@@ -88,6 +90,25 @@ public class Task {
 		return "Task [id=" + id + ", name=" + name + ", priority=" + priority + ", todo=" + todo + ", state=" + state
 				+ "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Task)) {
+			return false;
+		}
+		Task other = (Task) obj;
+		return id == other.id && Objects.equals(name, other.name);
+	}
+	
+	
 	
 	
 
