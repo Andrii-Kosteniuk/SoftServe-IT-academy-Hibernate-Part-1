@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -56,6 +57,7 @@ public class TaskTests {
 
     @BeforeAll
     static void init() {
+        Locale.setDefault(Locale.ENGLISH);
         try (ValidatorFactory factory = Validation.buildDefaultValidatorFactory();) {
             validator = factory.getValidator();
         }
