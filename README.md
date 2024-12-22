@@ -38,9 +38,6 @@ This project involves creating entities that match a provided SQL schema and imp
 - [Validation Rules](#validation-rules)
 - [Setup and Installation](#setup-and-installation)
 - [Unit Tests](#unit-tests)
-- [Example Validations](#example-validations)
-- [Contributors](#contributors)
-- [License](#license)
 
 ---
 
@@ -170,6 +167,8 @@ Example for Maven:
 
 </dependencies>
 ```
-3. **Run Unit Tests** Use Maven or your IDE to run the unit tests:
+
+## Unit Tests
+3.**Run Unit Tests** Use Maven or your IDE to run the unit tests:
 ```bash
    mvn test
